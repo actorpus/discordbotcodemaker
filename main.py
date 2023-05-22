@@ -41,6 +41,7 @@ Here is a list of commands:
 /ping: Use this command to check if the bot is online. It should respond with pong.
 /help: Use this to get info. Use /help <command> to get info about a specific command.
 /role: Use this command to get a role. /role <role-name>
+/source: returns the link to this bots github. 
 """)
 
     elif command == "ping":
@@ -154,6 +155,18 @@ async def on_message(ctx: discord.Message):
             .split(".")[0]
             .split(",")[0] +
             "! I'm ~~only here to provide a skeleton for custom messages~~ Dad!")
+
+
+@bot.command(
+    name="source",
+    description="returns the link to this bots github."
+)
+async def command_source(ctx: discord.ApplicationContext):
+    await ctx.respond(
+        "https://github.com/actorpus/discordbotcodemaker",
+        ephemeral=True
+    )
+
 
 if __name__ == '__main__':
     bot.run(os.environ['token'])
