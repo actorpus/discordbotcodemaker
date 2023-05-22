@@ -2,7 +2,7 @@ import discord
 import os
 
 
-__version__ = "V0.0.1"
+__version__ = "V0.0.2"
 __licence__ = """
 This work is licensed under the Creative Commons 
 Attribution-ShareAlike 4.0 International License. 
@@ -138,19 +138,19 @@ async def on_message(ctx: discord.Message):
         print("Error getting message content, bad intents?")
         return
 
-    if "im" in content.lower():
+    if "im " in content.lower():
         await ctx.channel.send(
             "Hi " +
-            content[content.lower().find("im") + 2:]
+            content[content.lower().find("im ") + 3:]
             .strip()
             .split(".")[0]
             .split(",")[0] +
             "! I'm ~~only here to provide a skeleton for custom messages~~ Dad!")
 
-    if "i'm" in content.lower():
+    if "i'm " in content.lower():
         await ctx.channel.send(
             "Hi " +
-            content[content.lower().find("i'm") + 3:]
+            content[content.lower().find("i'm ") + 4:]
             .strip()
             .split(".")[0]
             .split(",")[0] +
